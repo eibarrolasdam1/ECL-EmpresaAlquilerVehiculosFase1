@@ -94,7 +94,7 @@ public class Vehiculo {
     public String toString() {
     	StringBuilder sb = new StringBuilder();
     	sb.append("\nMatricula: ").append(this.matricula).append("\t | \t Marca: ").append(this.marca).append("\t | \t Modelo: ");
-    	sb.append(this.modelo).append("\nPrecio día alquiler: ").append(this.precioDia);
+    	sb.append(this.modelo).append("\nPrecio día alquiler: ").append(this.precioDia + " €");
     	return sb.toString();
     }
 

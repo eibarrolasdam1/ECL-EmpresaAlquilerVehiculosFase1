@@ -23,11 +23,14 @@ public class Coche extends Vehiculo{
 	}
 	
 	public double precioAlquiler(int dias) {
+		double precioAlquiler = 0;
 		double precio = super.getPrecioDia();
 		if (this.getPlazas() > 4) {
-			return (precio + 5) * dias;
+			precioAlquiler = (precio + 5) * dias;
+		} else {
+			precioAlquiler = super.calcularPrecioAlquiler(dias);
 		}
-		return super.calcularPrecioAlquiler(dias);
+		return precioAlquiler;
 	}
 	
 	public String toString() {

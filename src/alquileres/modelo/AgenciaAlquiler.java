@@ -125,7 +125,7 @@ public class AgenciaAlquiler {
 		StringBuilder sb = new StringBuilder();
 		for (Vehiculo v: flota) {
 			if (v instanceof Coche) {
-			sb.append(v.toString()).append("\nCoste alquiler " + dias + " días: ").append(v.calcularPrecioAlquiler(dias)).append("\n-----------------------------------------------------\n");
+			sb.append(v.toString()).append("\nCoste alquiler " + dias + " días: ").append(v.calcularPrecioAlquiler(dias)).append(" € \n-----------------------------------------------------\n");
 			}
 		}
 		return sb.toString();
@@ -135,9 +135,10 @@ public class AgenciaAlquiler {
 	/**
 	 * Obtiene y devuelve una lista de coches con mÃ¡s de 4 plazas ordenada por
 	 * matrÃ­cula - Hay que usar un iterador
+	 * @param <T>
 	 * 
 	 */
-	public List<Coche> cochesOrdenadosMatricula() {
+	public <T> List<Coche> cochesOrdenadosMatricula() {
 		List<Coche> lista = new ArrayList<>();
 		Iterator<Vehiculo> it = flota.iterator();
 		while (it.hasNext()) {
@@ -146,7 +147,7 @@ public class AgenciaAlquiler {
 					lista.add((Coche) v);
 				}
 			}
-		// lista.sort(Comparator.naturalOrder());
+		// Collections.sort(lista, Comparator.naturalOrder());
 		return lista;
 	}
 
@@ -169,6 +170,7 @@ public class AgenciaAlquiler {
 				return Double.compare(furgo1.getVolumen(), furgo2.getVolumen());
 			}
 		});
+		Collections.reverse(lista);
 		return lista;
 	}
 
