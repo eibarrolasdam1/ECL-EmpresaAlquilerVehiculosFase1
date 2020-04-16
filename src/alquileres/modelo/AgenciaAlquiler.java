@@ -107,7 +107,7 @@ public class AgenciaAlquiler {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Vehículos en alquiler de la agencia ").append(this.nombre).append("\n Total vehículos: ").append(flota.size()).append("\n");
+		sb.append("Vehículos en alquiler de la agencia ").append(this.nombre).append("\nTotal vehículos: ").append(flota.size()).append("\n");
 		for (Vehiculo v: flota) {
 			sb.append(v.toString()).append("\n ----------------------------------------------------------------------------------------------------------- \n");
 		}
@@ -125,11 +125,10 @@ public class AgenciaAlquiler {
 		StringBuilder sb = new StringBuilder();
 		for (Vehiculo v: flota) {
 			if (v instanceof Coche) {
-			sb.append(v.toString()).append("\nCoste alquiler " + dias + " días: ").append(v.calcularPrecioAlquiler(dias)).append(" € \n-----------------------------------------------------\n");
+			sb.append(v.toString()).append("\nCoste alquiler " + dias + " días: ").append(((Coche) v).precioAlquiler(dias)).append(" € \n-----------------------------------------------------\n");
 			}
 		}
 		return sb.toString();
-
 	}
 
 	/**
@@ -145,9 +144,9 @@ public class AgenciaAlquiler {
 			Vehiculo v = it.next();
 			if (v instanceof Coche && ((Coche) v).getPlazas() > 4) {
 					lista.add((Coche) v);
-				}
 			}
-		// Collections.sort(lista, Comparator.naturalOrder());
+		}
+//		Collections.sort(lista);
 		return lista;
 	}
 
