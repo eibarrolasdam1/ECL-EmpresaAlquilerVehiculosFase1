@@ -146,7 +146,7 @@ public class AgenciaAlquiler {
 					lista.add((Coche) v);
 			}
 		}
-//		lista.sort(Comparator.naturalOrder());
+		lista.sort(Comparator.naturalOrder());
 		return lista;
 	}
 
